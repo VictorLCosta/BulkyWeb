@@ -1,19 +1,22 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace BulkyWeb.Controllers;
 
 public class CategoryController : Controller
 {
-    private readonly ILogger<CategoryController> _logger;
+    private readonly ApplicationDbContext _context;
 
-    public CategoryController(ILogger<CategoryController> logger)
+    public CategoryController(ApplicationDbContext context)
     {
-        _logger = logger;
+        _context = context;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        return View();
+        var categoriesList = await _context.Categories.ToListAsync();
+
+        return View(categoriesList);
     }
 
 }

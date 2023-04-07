@@ -36,6 +36,8 @@ public class ApplicationDbContextInitialiser
 
             await _context.Categories.AddRangeAsync(categories);
         }
+
+        await _context.SaveChangesAsync();
     }
 
 }
