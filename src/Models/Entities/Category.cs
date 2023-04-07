@@ -1,4 +1,4 @@
-namespace src.Models.Entities;
+namespace BulkyWeb.Models.Entities;
 
 public class Category : BaseEntity
 {
