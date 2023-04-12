@@ -19,4 +19,11 @@ public class CategoryController : Controller
         return View(categoriesList);
     }
 
+    public IActionResult Create()
+    {
+        ViewData["Title"] = "Create Category";
+
+        return View();
+    }
+
 }
